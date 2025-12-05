@@ -1,0 +1,193 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>VXE360 Entertainment - Pull-Up Bar Station Waiver</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<style>
+  body {
+    font-family: Calibri, Arial, sans-serif;
+    background: #f6f6f6;
+    padding: 20px;
+    margin: 0;
+  }
+  .card {
+    max-width: 850px;
+    margin: auto;
+    background: white;
+    padding: 25px 28px;
+    border-radius: 14px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+    border-top: 6px solid #d4af37;
+  }
+  h1 {
+    text-align: center;
+    font-size: 1.7rem;
+    margin-bottom: 4px;
+    color: #000;
+  }
+  h2.subtitle {
+    text-align: center;
+    font-size: 1.15rem;
+    margin-top: 0;
+    color: #007bff;
+    font-weight: bold;
+  }
+  .gold-line {
+    width: 80px;
+    height: 4px;
+    background: #d4af37;
+    margin: 14px auto 22px auto;
+    border-radius: 3px;
+  }
+  .note {
+    background: #fff8e6;
+    border-left: 4px solid #d4af37;
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-top: 12px;
+    font-size: 0.85rem;
+    color: #444;
+  }
+  label {
+    font-weight: bold;
+    margin-top: 12px;
+    display: block;
+  }
+  input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #bbb;
+    font-size: 1rem;
+    margin-top: 4px;
+    box-sizing: border-box;
+  }
+  .ack-section {
+    background: #fafafa;
+    border-left: 4px solid #d4af37;
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin-top: 22px;
+  }
+  .ack-title {
+    font-weight: bold;
+    color: #000;
+  }
+  button {
+    width: 100%;
+    margin-top: 22px;
+    padding: 14px;
+    border: none;
+    background: #000;
+    color: white;
+    border-radius: 999px;
+    font-size: 1.05rem;
+    cursor: pointer;
+  }
+  button:hover {
+    opacity: 0.9;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>TEXAS LIABILITY WAIVER & RELEASE</h1>
+  <h2 class="subtitle">VXE360 Entertainment - Pull-Up Bar Station</h2>
+  <div class="gold-line"></div>
+
+  <div class="note">
+    Please complete all fields below. After you tap <b>"Submit &amp; Email Copy"</b>, your email app will open with the waiver details pre-filled
+    so that both you and VXE360 Entertainment receive a copy.
+  </div>
+
+  <form id="waiverForm">
+
+    <label for="participantName">Participant Name (Full Legal Name)</label>
+    <input id="participantName" required />
+
+    <label for="participantEmail">Your Email (to receive a copy)</label>
+    <input id="participantEmail" type="email" required />
+
+    <label for="date">Date</label>
+    <input type="date" id="date" required />
+
+    <label for="emergencyContact">Emergency Contact</label>
+    <input id="emergencyContact" required />
+
+    <label for="phone">Emergency Contact Phone</label>
+    <input id="phone" required />
+
+    <div class="ack-section">
+
+      <p><span class="ack-title">Acknowledgment of Full Understanding</span><br>
+      I acknowledge that I have carefully read and fully understand the terms and conditions of this Liability Waiver &amp; Release.</p>
+
+      <p><span class="ack-title">Assumption of Risk</span><br>
+      I understand that participation in the pull-up bar activity involves inherent risks, including but not limited to physical exertion, muscle strain, falls, and equipment-related injuries, and I voluntarily assume all such risks.</p>
+
+      <p><span class="ack-title">Personal Physical Capability</span><br>
+      I affirm that I am physically capable of safely participating in this activity and do not have any medical condition that would impair my ability to use the pull-up bar equipment.</p>
+
+      <p><span class="ack-title">Responsible Equipment Use</span><br>
+      I agree to use the pull-up bar equipment responsibly and follow all instructions provided by VXE360 Entertainment staff.</p>
+
+      <p><span class="ack-title">Release &amp; Hold Harmless</span><br>
+      I release and hold harmless VXE360 Entertainment and all related event partners from any liability for injuries, damages, or losses arising from participation.</p>
+
+      <p><span class="ack-title">Photo &amp; Video Consent</span><br>
+      I consent to the use of event photos or videos capturing my participation for promotional or internal event purposes.</p>
+
+    </div>
+
+    <label for="signature">Signature (Type Your Full Name)</label>
+    <input id="signature" required />
+
+    <button type="submit">Submit &amp; Email Copy</button>
+  </form>
+</div>
+
+<script>
+document.getElementById("waiverForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  var destEmail = "events@vxecorp.com";
+  var name = document.getElementById("participantName").value.trim();
+  var signature = document.getElementById("signature").value.trim();
+  var userEmail = document.getElementById("participantEmail").value.trim();
+  var dateVal = document.getElementById("date").value;
+  var emergencyContact = document.getElementById("emergencyContact").value.trim();
+  var phone = document.getElementById("phone").value.trim();
+
+  var body =
+"VXE360 ENTERTAINMENT – LIABILITY WAIVER SUBMISSION\n\n" +
+"Participant Name: " + name + "\n" +
+"Typed Signature: " + signature + "\n" +
+"Participant Email: " + userEmail + "\n" +
+"Date: " + dateVal + "\n\n" +
+"Emergency Contact: " + emergencyContact + "\n" +
+"Phone: " + phone + "\n\n" +
+"Acknowledgments:\n" +
+"- Full Understanding: YES\n" +
+"- Assumption of Risk: YES\n" +
+"- Physical Capability: YES\n" +
+"- Responsible Equipment Use: YES\n" +
+"- Release & Hold Harmless: YES\n" +
+"- Photo/Video Consent: YES";
+
+  var mailto =
+    "mailto:" + destEmail +
+    "?cc=" + encodeURIComponent(userEmail) +
+    "&subject=" + encodeURIComponent("General Waiver Submission – " + name) +
+    "&body=" + encodeURIComponent(body);
+
+  window.location.href = mailto;
+  alert("Your email app will open. Please press SEND to complete your waiver and receive your copy.");
+});
+</script>
+
+</body>
+</html>
